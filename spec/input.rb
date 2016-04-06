@@ -26,4 +26,9 @@ RSpec.describe "Input" do
     expect(result).to eq -5.1
   end
 
+  it "Returns error on invalid numbers" do
+    result = @rpn_eval.call "-5.1.a"
+    expect(result).to match "Error"
+  end  
+
 end
