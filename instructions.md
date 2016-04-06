@@ -7,8 +7,6 @@ practices according to the standards of the language, and how easy it is to
 understand and modify. This is a small problem, but write code representative
 of how you organize things in a larger context.
 Feel free to document any design decisions you make for the benefit of your reviewers.
-Your solution will be reviewed by the whole team, so imagine that these are your
-first commits to our production codebase! :smile:
 
 ## Specifications
 
