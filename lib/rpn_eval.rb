@@ -18,8 +18,8 @@ class RPNEval
         @stack << input.to_i
     when /\A[\+\-\*\/]\z/
       return "Error: insufficient operands" unless @stack.length > 1
-      a = @stack.pop
       b = @stack.pop
+      a = @stack.pop
       case(input)
       when /\+/
         @stack << a + b
@@ -28,7 +28,7 @@ class RPNEval
       when /\*/
         @stack << a * b
       when /\//
-        @stack << a / b
+        @stack << 1.0 * a / b
       end
     else 
       return "Error: Unknown input: #{input}"
