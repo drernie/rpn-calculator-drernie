@@ -1,10 +1,10 @@
 This is a sample RPN Calculator in Ruby.  The goal is to demonstrate current best practices in Ruby development.
 
 # FEATURES
-- four standard arithmetic operators
-- parses negative and decimal numbers
-- gives meaningful errors for invalid inputs
-- exits on [qQ] or EOF (^D).
+- Four standard arithmetic operators
+- Parses negative and decimal numbers
+- Gives meaningful errors for invalid inputs
+- Exits on 'q' or EOF (^D).
 
 
 # INSTALLATION
@@ -14,4 +14,11 @@ $ cd rpn-calculator-drernie
 ```
 # EXECUTION
 ```
-$ ./rpn-calc.rb
+$ ruby rpn_calc.rb
+```
+
+# TESTING
+```
+$ gem install rspec
+$ rspec spec/*
+```
