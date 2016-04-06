@@ -1,3 +1,13 @@
+# rpn_repl.rb
+# Ernest Prabhakar
+# 5-APR-2016
+#
+# I/O Functions for REPL
+# Generate Prompt
+# Handle exit conditions
+# Call evaluator
+# Repeat
+
 require_relative './rpn_eval'
 
 PROMPT = "> "
@@ -14,7 +24,7 @@ def run
   
   loop do
     printf PROMPT
-    input = gets
+    input = gets()
     check_for_end(input)
     result = rpn_eval.call input.chomp!
     puts result

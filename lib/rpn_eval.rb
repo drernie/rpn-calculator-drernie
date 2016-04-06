@@ -1,4 +1,11 @@
-# Stub for testing
+# rpn_repl.rb
+# Ernest Prabhakar
+# 5-APR-2016
+#
+# Parse string
+# Maintain stack
+# Perform operations
+# Return 'Error' on invalid input
 
 # Parser Regex from http://stackoverflow.com/questions/8071533/convert-input-value-to-integer-or-float-as-appropriate-using-ruby
 
