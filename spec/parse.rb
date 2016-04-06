@@ -8,7 +8,8 @@ RSpec.describe "Parse" do
     expect(result).to match "Error"
   end  
 
-  it "Returns number if properly configured" do
+  it "Returns rpn_number if properly configured" do
+    rpn_number /\d+/, -> s {Integer(s)}
     result = rpn_parse "1"
     expect(result).to eq 1
   end  

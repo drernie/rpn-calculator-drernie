@@ -12,13 +12,13 @@ STACK = []
 PARSERS = []
 
 def rpn_number(pattern, transform)
-  -> string {
+  PARSERS << -> string {
     STACK << transform.call(string) if pattern.match(string)
   }
 end
 
 def rpn_operator(pattern, behavior)
-  -> string {
+ PARSERS << -> string {
     return nil unless pattern.match(string)
     return "Error: insufficient operands" unless STACK.length > 1
     b = STACK.pop
