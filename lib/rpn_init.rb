@@ -1,14 +1,19 @@
 # rpn_init.rb
 # Ernest Prabhakar
-# 5-APR-2016
+# 6-APR-2016
 #
 # Wrap Eval for use by REPL
 
-require_relative './rpn_eval'
+require_relative './rpn_parse'
 
 def rpn_init
-  rpn_eval = RPNEval.new
+  rpn_number /\A\s*[+-]?\d+\z/ , -> s {Integer(s)}
+  rpn_number /\A\s*[+-]?\d+\.\d+\z/ , -> s {Float(s)}
+  rpn_operator /\A\+\z/, -> a,b {a + b}
+  rpn_operator /\A\-\z/, -> a,b {a - b}
+  rpn_operator /\A\*\z/, -> a,b {a * b}
+  rpn_operator /\A\/\z/, -> a,b {1.0 * a / b}
   -> x {
-    rpn_eval.call x
+    rpn_parse x
   }
 end
