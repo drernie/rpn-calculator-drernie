@@ -16,6 +16,11 @@ class RPNEval
         @stack << input.to_f
     when /\A\s*[+-]?\d+\z/ 
         @stack << input.to_i
+    when/\A\+\z/
+      return "Error: insufficient operands" unless @stack.length > 1
+      a = @stack.pop
+      b = @stack.pop
+      @stack << a + b
     else 
       return "Error: Unknown input: #{input}"
     end
