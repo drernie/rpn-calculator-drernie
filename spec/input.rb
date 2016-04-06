@@ -3,27 +3,26 @@
 require 'rpn_eval'
 
 RSpec.describe "Input" do
+  before do
+    @rpn_eval = RPNEval.new
+  end
   it "Takes a integer string and returns an integer" do
-    rpn_eval = RPNEval.new
-    result = rpn_eval.call "4"
+    result = @rpn_eval.call "4"
     expect(result).to eq 4
   end
 
   it "Takes negative integers" do
-    rpn_eval = RPNEval.new
-    result = rpn_eval.call "-4"
+    result = @rpn_eval.call "-4"
     expect(result).to eq -4
   end
 
   it "Takes a decimal string and returns a float" do
-    rpn_eval = RPNEval.new
-    result = rpn_eval.call "5.1"
+    result = @rpn_eval.call "5.1"
     expect(result).to eq 5.1
   end
 
   it "Takes negative floats" do
-    rpn_eval = RPNEval.new
-    result = rpn_eval.call "-5.1"
+    result = @rpn_eval.call "-5.1"
     expect(result).to eq -5.1
   end
 
