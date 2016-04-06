@@ -5,13 +5,15 @@
 # Manage stack
 # Configure parser
 #
-# TODO: Isolate stack to prevent information leakage
-#
 # See https://github.com/drernie/rpn-calculator-drernie/wiki for motivation and tradeoffs
 
 STACK = []
-
 PARSERS = []
+
+def rpn_reset
+  STACK.clear
+  PARSERS.clear
+end
 
 def rpn_number(pattern, transform)
   PARSERS << -> string {
