@@ -16,6 +16,19 @@ $ cd rpn-calculator-drernie
 ```
 $ ruby rpn_calc.rb
 ```
+# USAGE
+```
+    > -3
+    -3
+    > -2
+    -2
+    > *
+    6
+    > 5
+    5
+    > +
+    11
+```
 
 # TESTING
 ```
