@@ -11,7 +11,7 @@
 require_relative './rpn_init'
 
 PROMPT = "> "
-EXIT_MESSAGE = "Thank you for trying Dr. Ernie's RPN Calculator. Goodbye!"
+EXIT_MESSAGE = "\nThank you for trying Dr. Ernie's RPN Calculator. Goodbye!"
 
 def check_for_end(input)
   if input.nil? or input == "q\n" then
