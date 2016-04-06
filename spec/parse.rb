@@ -14,4 +14,13 @@ RSpec.describe "Parse" do
     expect(result).to eq 1
   end  
 
+  it "Uses rpn_operator if properly configured" do
+    rpn_number /\d+/, -> s {Integer(s)}
+    rpn_operator /\+/, -> a,b {a + b}
+    rpn_parse "5"
+    rpn_parse "8"
+    result = rpn_parse "+"
+    expect(result).to eq 13
+  end  
+
 end

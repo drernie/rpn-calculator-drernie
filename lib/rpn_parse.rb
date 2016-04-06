@@ -5,6 +5,8 @@
 # Manage stack
 # Configure parser
 #
+# TODO: Isolate stack to prevent information leakage
+#
 # See https://github.com/drernie/rpn-calculator-drernie/wiki for motivation and tradeoffs
 
 STACK = []
@@ -23,7 +25,7 @@ def rpn_operator(pattern, behavior)
     return "Error: insufficient operands" unless STACK.length > 1
     b = STACK.pop
     a = STACK.pop
-    behavior.call(a,b)
+    STACK << behavior.call(a,b)
   }
 end
 
