@@ -8,10 +8,10 @@
 # Call evaluator
 # Repeat
 
-require_relative './rpn_eval'
+require_relative './rpn_init'
 
 PROMPT = "> "
-EXIT_MESSAGE = "Thank you for trying Dr. Ernie's RPN Calculator. Goodbye!"
+EXIT_MESSAGE = "\nThank you for trying Dr. Ernie's RPN Calculator. Goodbye!"
 
 def check_for_end(input)
   if input.nil? or input == "q\n" then
@@ -20,13 +20,13 @@ def check_for_end(input)
 end
 
 def run
-  rpn_eval = RPNEval.new
+  rpn = rpn_init()
   
   loop do
     printf PROMPT
     input = gets()
     check_for_end(input)
-    result = rpn_eval.call input.chomp!
+    result = rpn.call input.chomp!
     puts result
   end
 end
