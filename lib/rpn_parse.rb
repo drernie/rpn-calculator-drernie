@@ -1,4 +1,4 @@
-# rpn_parse.rb
+# parse.rb
 # Ernest Prabhakar
 # 5-APR-2016
 #
@@ -7,35 +7,37 @@
 #
 # See https://github.com/drernie/rpn-calculator-drernie/wiki for motivation and tradeoffs
 
-STACK = []
-PARSERS = []
-
-def rpn_reset
-  STACK.clear
-  PARSERS.clear
-end
-
-def rpn_number(pattern, transform)
-  PARSERS << -> string {
-    STACK << transform.call(string) if pattern.match(string)
-  }
-end
-
-def rpn_operator(pattern, behavior)
- PARSERS << -> string {
-    return nil unless pattern.match(string)
-    return "Error: insufficient operands" unless STACK.length > 1
-    b = STACK.pop
-    a = STACK.pop
-    STACK << behavior.call(a,b)
-  }
-end
-
-def rpn_parse(string)
-  PARSERS.each do |parser|
-    result = parser.call(string)
-    return STACK[-1] if result
+class RPNParse
+  
+  attr :stack, :parsers
+  
+  def initialize
+    @stack = []
+    @parsers = []
   end
-  return "Error: Unknown input: #{string}"
-end
 
+  def number(pattern, transform)
+    @parsers << -> string {
+      @stack << transform.call(string) if pattern.match(string)
+    }
+  end
+
+  def operator(pattern, behavior)
+   @parsers << -> string {
+      return nil unless pattern.match(string)
+      return "Error: insufficient operands" unless @stack.length > 1
+      b = @stack.pop
+      a = @stack.pop
+      @stack << behavior.call(a,b)
+    }
+  end
+
+  def call(string)
+    @parsers.each do |parser|
+      result = parser.call(string)
+      return @stack[-1] if result
+    end
+    return "Error: Unknown input: #{string}"
+  end
+
+end
