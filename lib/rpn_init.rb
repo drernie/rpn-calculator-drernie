@@ -15,5 +15,7 @@ def rpn_init
   rpn.operator /\A\-\z/, -> a,b {a - b}
   rpn.operator /\A\*\z/, -> a,b {a * b}
   rpn.operator /\A\/\z/, -> a,b {1.0 * a / b}
-  rpn
+  -> string {
+    rpn.call string
+  }
 end
